@@ -1,0 +1,133 @@
+<!DOCTYPE html><html lang="ar" dir="rtl" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>MUSHAF</title><link rel="manifest" href="manifest.json"><link rel="icon" href="logo.svg"><meta name="theme-color" content="#0d1117">
+<style>
+:root{--bg:#0d1117;--cd:#161b22;--bd:#30363d;--tx:#e6edf3;--mu:#8b949e;--ac:#238636;--lk:#58a6ff;--gd:#d4a72c}
+[data-theme=light]{--bg:#fff;--cd:#f6f8fa;--bd:#d0d7de;--tx:#1f2328;--mu:#656d76;--ac:#1a7f37;--lk:#0969da;--gd:#9a6700}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.7 "Noto Naskh Arabic","Traditional Arabic","Segoe UI",Tahoma,serif;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+.scr{display:none;min-height:100vh;padding:16px;max-width:640px;margin:auto}.scr.on{display:block}
+button,input{font:inherit;color:inherit}
+.btn{background:var(--ac);color:#fff;border:1px solid #ffffff1f;border-radius:8px;padding:10px 18px;cursor:pointer}
+.btn.g{background:var(--cd);color:var(--tx);border-color:var(--bd)}
+.top{display:flex;align-items:center;gap:10px;margin-bottom:14px}.top h2{margin:0;flex:1;font-size:20px}
+.bk{background:var(--cd);border:1px solid var(--bd);border-radius:8px;width:40px;height:40px;cursor:pointer}
+.card{background:var(--cd);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:10px}
+/* splash */
+#splash{display:none;place-items:center;text-align:center;background:radial-gradient(circle at 50% 38%,#12301c,#0d1117 65%);max-width:none;color:#e6edf3}
+#splash.on{display:grid}
+#splash img{width:160px;height:160px;border-radius:36px;box-shadow:0 0 0 1px #30363d,0 0 70px #238636aa;animation:pop 1.2s cubic-bezier(.2,1.3,.4,1)}
+#splash h1{font:700 40px/1 system-ui;letter-spacing:.25em;margin:26px 0 8px;padding-inline-start:.25em}
+#splash p{color:#d4a72c;margin:0 0 6px;font-size:18px}#splash small{color:#8b949e;font-family:system-ui}
+.ld{width:140px;height:3px;background:#30363d;margin:26px auto 0;border-radius:3px;overflow:hidden}.ld i{display:block;height:100%;background:#2ea043;animation:ld 2.4s linear forwards}
+@keyframes pop{from{transform:scale(.4) rotate(-8deg);opacity:0}}@keyframes ld{from{width:0}to{width:100%}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+/* name */
+#nameS.on{display:grid;place-items:center}#nameS .card{width:100%;text-align:center;padding:26px}
+#nameS img{width:84px;border-radius:20px}#nameS input{width:100%;padding:12px;margin:14px 0;background:var(--bg);border:1px solid var(--bd);border-radius:8px;text-align:center}
+/* home */
+.hi{margin:6px 0 18px}.hi img{width:46px;border-radius:12px;vertical-align:middle;margin-inline-end:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tile{background:var(--cd);border:1px solid var(--bd);border-radius:12px;padding:24px 8px;text-align:center;cursor:pointer;font-size:18px}
+.tile:hover,.tile:focus-visible{border-color:var(--ac)}.tile span{display:block;font-size:44px;line-height:1.3}
+/* quran */
+.sr{display:flex;gap:10px;align-items:center;width:100%;text-align:start;background:var(--cd);border:1px solid var(--bd);border-radius:8px;padding:10px 12px;margin-bottom:8px;cursor:pointer}
+.sr b{color:var(--gd);min-width:34px}.sr small{margin-inline-start:auto;color:var(--mu)}
+#q{width:100%;padding:10px;background:var(--cd);border:1px solid var(--bd);border-radius:8px;margin-bottom:12px}
+.ay{font-size:26px;line-height:2.3;padding:6px 10px;border-radius:8px;cursor:pointer;text-align:justify}
+.ay.pl{background:#23863633;outline:1px solid var(--ac)}.no{color:var(--gd);font-size:20px}
+.tf{display:none;font-size:16px;line-height:1.9;color:var(--mu);margin:4px 0;padding-inline-start:10px;border-inline-start:3px solid var(--gd)}
+.ay.show .tf,#ay.all .tf{display:block}
+.bar{position:sticky;top:0;background:var(--bg);padding:8px 0;display:flex;gap:8px;flex-wrap:wrap;z-index:2}
+/* azkar */
+.tabs{display:flex;gap:8px;margin-bottom:12px}.tabs button{flex:1}.tabs .on{background:var(--ac);color:#fff}
+.z p{font-size:20px;line-height:2.1;margin:0 0 10px}.z .c{width:100%}.z.done{opacity:.5}
+/* tasbih */
+.ts{text-align:center}.ts select{background:var(--cd);color:var(--tx);border:1px solid var(--bd);border-radius:8px;padding:8px;font-size:18px}
+#tb{width:230px;height:230px;border-radius:50%;border:6px solid var(--ac);background:var(--cd);font:700 64px system-ui;margin:22px auto;display:block;cursor:pointer;box-shadow:0 0 40px #23863640}
+#tb:active{transform:scale(.96)}
+.sw{display:flex;justify-content:space-between;align-items:center}.sw input{width:22px;height:22px}
+a.dev{color:var(--lk);direction:ltr;unicode-bidi:embed}
+</style></head><body>
+<section class="scr" id="splash"><div><img src="logo.svg" alt="MUSHAF"><h1>MUSHAF</h1><p>﴿ إِنَّا نَحْنُ نَزَّلْنَا الذِّكْرَ وَإِنَّا لَهُ لَحَافِظُونَ ﴾</p><small>v1.0.1</small><div class="ld"><i></i></div></div></section>
+
+<section class="scr" id="nameS"><div class="card"><img src="logo.svg" alt=""><h2>مرحبًا بك في MUSHAF</h2><p style="color:var(--mu)">اكتب اسمك لنبدأ</p><input id="nm" placeholder="الاسم" maxlength="30" autocomplete="off"><button class="btn" id="nmb">ابدأ</button></div></section>
+
+<section class="scr" id="home"><div class="hi"><img src="logo.svg" alt=""><b id="hi"></b></div>
+<div class="grid"><button class="tile" data-go="quran"><span>📖</span>القرآن الكريم</button><button class="tile" data-go="azkar"><span>🤲</span>الأذكار</button><button class="tile" data-go="tasbih"><span>📿</span>المسبحة</button><button class="tile" data-go="sett"><span>⚙️</span>الإعدادات</button></div></section>
+
+<section class="scr" id="quran"><div class="top"><button class="bk" data-go="home">→</button><h2>القرآن الكريم</h2></div><input id="q" placeholder="ابحث عن سورة..."><div id="sl">جارٍ التحميل...</div></section>
+
+<section class="scr" id="reader"><div class="top"><button class="bk" data-go="quran">→</button><h2 id="rt"></h2></div>
+<div class="bar"><button class="btn" id="pp">▶ استماع</button><button class="btn g" id="tfb">التفسير</button><button class="btn g" id="dl">⬇ حفظ الصوت</button></div>
+<small style="color:var(--mu)">القارئ: مشاري راشد العفاسي · اضغط على الآية لعرض تفسيرها</small><div id="ay"></div></section>
+
+<section class="scr" id="azkar"><div class="top"><button class="bk" data-go="home">→</button><h2>الأذكار</h2></div><div class="tabs" id="tabs"><button class="btn g" data-k="all">الكل</button><button class="btn g" data-k="sabah">الصباح</button><button class="btn g" data-k="masa">المساء</button><button class="btn g" data-k="safar">السفر</button></div><div id="zl"></div></section>
+
+<section class="scr ts" id="tasbih"><div class="top"><button class="bk" data-go="home">→</button><h2>المسبحة الإلكترونية</h2></div>
+<select id="ph"><option>سبحان الله</option><option>الحمد لله</option><option>الله أكبر</option><option>لا إله إلا الله</option><option>أستغفر الله</option><option>اللهم صل وسلم على نبينا محمد</option></select>
+<button id="tb">0</button><p>الجولات: <b id="rd">0</b></p>
+<div class="tabs" id="tg"><button class="btn g" data-t="33">33</button><button class="btn g" data-t="100">100</button><button class="btn g" data-t="1000">1000</button><button class="btn g" data-t="0">∞</button></div>
+<button class="btn g" id="rs">تصفير</button></section>
+
+<section class="scr" id="sett"><div class="top"><button class="bk" data-go="home">→</button><h2>الإعدادات</h2></div>
+<div class="card sw"><label for="thm">الوضع الداكن</label><input type="checkbox" id="thm"></div>
+<div class="card sw"><span>الاسم: <b id="sn"></b></span><button class="btn g" id="cn">تغيير</button></div>
+<div class="card"><b>معلومات المطور</b><p style="margin:6px 0">المطور: rFM<br><a class="dev" href="https://wa.me/201027814323" target="_blank" rel="noopener">+201027814323</a></p></div>
+<div class="card" style="text-align:center"><img src="logo.svg" width="64" style="border-radius:16px" alt=""><br><b>MUSHAF</b><br><small style="color:var(--mu)">الإصدار 1.0.1</small></div></section>
+
+<script>
+const L=localStorage,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const go=id=>{$$('.scr').forEach(e=>e.classList.toggle('on',e.id===id));scrollTo(0,0)};
+$$('[data-go]').forEach(b=>b.onclick=()=>{if(b.dataset.go!=='reader')A.pause();go(b.dataset.go);if(b.dataset.go==='quran')lq()});
+const theme=t=>{L.theme=t;document.documentElement.dataset.theme=t;$('#thm').checked=t==='dark';document.querySelector('[name=theme-color],meta[name=theme-color]').content=t==='dark'?'#0d1117':'#ffffff'};
+$('#thm').onchange=e=>theme(e.target.checked?'dark':'light');theme(L.theme||'dark');
+const home=()=>{$('#hi').textContent='السلام عليكم يا '+L.name;$('#sn').textContent=L.name;go('home')};
+$('#nmb').onclick=()=>{const v=$('#nm').value.trim();if(!v)return $('#nm').focus();L.name=v;home()};
+$('#cn').onclick=()=>{$('#nm').value=L.name;go('nameS')};
+go('splash');setTimeout(()=>L.name?home():go('nameS'),2600);
+/* القرآن */
+let Q,cur,idx=-1;const A=new Audio();
+const norm=(n,j,t)=>j==0&&n!=1&&n!=9?t.split(' ').slice(4).join(' '):t;
+async function load(){if(Q)return Q;
+ try{const r=await fetch('data/quran.json');if(!r.ok)throw 0;Q=await r.json()}
+ catch{const g=async e=>(await(await fetch('https://api.alquran.cloud/v1/quran/'+e)).json()).data.surahs;
+  const[a,b]=await Promise.all([g('quran-uthmani'),g('ar.muyassar')]);
+  Q=a.map((s,i)=>({n:s.number,name:s.name,a:s.ayahs.map((y,j)=>[norm(s.number,j,y.text),b[i].ayahs[j].text])}))}
+ return Q}
+async function lq(){try{await load()}catch{$('#sl').textContent='تعذر التحميل. اتصل بالإنترنت مرة واحدة لحفظ النص.';return}
+ $('#sl').innerHTML=Q.map((s,i)=>`<button class="sr" data-i="${i}"><b>${s.n}</b>${s.name}<small>${s.a.length} آية</small></button>`).join('')}
+$('#sl').onclick=e=>{const b=e.target.closest('.sr');if(b)open(+b.dataset.i)};
+$('#q').oninput=e=>$$('.sr').forEach(b=>b.style.display=b.textContent.includes(e.target.value.trim())?'':'none');
+function open(i){cur=Q[i];idx=-1;A.pause();$('#rt').textContent=cur.name;$('#dl').textContent='⬇ حفظ الصوت';
+ $('#ay').className='';$('#ay').innerHTML=cur.a.map((a,j)=>`<div class="ay"><span>${a[0]} <b class="no">﴿${j+1}﴾</b></span><p class="tf">${a[1]}</p></div>`).join('');go('reader')}
+$('#ay').onclick=e=>{const d=e.target.closest('.ay');if(d)d.classList.toggle('show')};
+$('#tfb').onclick=()=>$('#ay').classList.toggle('all');
+const url=(s,a)=>`https://everyayah.com/data/Alafasy_128kbps/${String(s).padStart(3,0)}${String(a).padStart(3,0)}.mp3`;
+async function play(j){if(j>=cur.a.length){idx=-1;return}idx=j;
+ const els=$$('.ay');els.forEach((e,k)=>e.classList.toggle('pl',k===j));els[j].scrollIntoView({block:'center',behavior:'smooth'});
+ const u=url(cur.n,j+1),m=await(await caches.open('mushaf-audio')).match(u);
+ A.src=m?URL.createObjectURL(await m.blob()):u;try{await A.play()}catch{$('#pp').textContent='▶ استماع'}}
+A.onended=()=>play(idx+1);A.onplay=()=>$('#pp').textContent='⏸ إيقاف';A.onpause=()=>$('#pp').textContent='▶ استماع';
+$('#pp').onclick=()=>A.paused?(idx<0?play(0):A.play()):A.pause();
+$('#dl').onclick=async()=>{const c=await caches.open('mushaf-audio'),b=$('#dl');
+ for(let j=0;j<cur.a.length;j++){const u=url(cur.n,j+1);b.textContent=`⬇ ${j+1}/${cur.a.length}`;
+  if(!await c.match(u))try{const r=await fetch(u);if(r.ok)await c.put(u,r)}catch{b.textContent='⚠ تعذر التحميل';return}}
+ b.textContent='✓ محفوظة بدون إنترنت'};
+/* الأذكار */
+const sh=[['بِسْمِ اللَّهِ الَّذِي لَا يَضُرُّ مَعَ اسْمِهِ شَيْءٌ فِي الْأَرْضِ وَلَا فِي السَّمَاءِ وَهُوَ السَّمِيعُ الْعَلِيمُ',3],['رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ ﷺ نَبِيًّا',3],['سُبْحَانَ اللَّهِ وَبِحَمْدِهِ',100],['أَسْتَغْفِرُ اللَّهَ وَأَتُوبُ إِلَيْهِ',100]];
+const Z={sabah:[['آيَةُ الْكُرْسِيِّ: اللَّهُ لَا إِلَهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَنْ ذَا الَّذِي يَشْفَعُ عِنْدَهُ إِلَّا بِإِذْنِهِ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيْءٍ مِنْ عِلْمِهِ إِلَّا بِمَا شَاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ',1],['سُورَةُ الْإِخْلَاصِ وَالْفَلَقِ وَالنَّاسِ',3],['أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ، وَالْحَمْدُ لِلَّهِ، لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ، لَهُ الْمُلْكُ وَلَهُ الْحَمْدُ وَهُوَ عَلَى كُلِّ شَيْءٍ قَدِيرٌ',1],['اللَّهُمَّ بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وَإِلَيْكَ النُّشُورُ',1],...sh],
+safar:[['اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، اللَّهُ أَكْبَرُ، سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ، وَإِنَّا إِلَى رَبِّنَا لَمُنْقَلِبُونَ',1],['اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَذَا الْبِرَّ وَالتَّقْوَى، وَمِنَ الْعَمَلِ مَا تَرْضَى. اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَذَا وَاطْوِ عَنَّا بُعْدَهُ',1],['اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ',1],['أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ (عند النزول في مكان)',3]]};
+Z.masa=Z.sabah.map(([t,n])=>[t.replace('أَصْبَحْنَا وَأَصْبَحَ','أَمْسَيْنَا وَأَمْسَى').replace('بِكَ أَصْبَحْنَا، وَبِكَ أَمْسَيْنَا','بِكَ أَمْسَيْنَا، وَبِكَ أَصْبَحْنَا').replace('وَإِلَيْكَ النُّشُورُ','وَإِلَيْكَ الْمَصِيرُ'),n]);
+Z.all=[...Z.sabah,...Z.masa,...Z.safar];
+function zs(k){$$('#tabs button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));
+ $('#zl').innerHTML=Z[k].map(([t,n])=>`<div class="card z"><p>${t}</p><button class="btn c g" data-n="${n}" data-c="0">0 / ${n}</button></div>`).join('')}
+$('#tabs').onclick=e=>e.target.dataset.k&&zs(e.target.dataset.k);
+$('#zl').onclick=e=>{const b=e.target.closest('.c');if(!b)return;let c=+b.dataset.c,n=+b.dataset.n;if(c>=n)return;c++;b.dataset.c=c;b.textContent=c+' / '+n;
+ if(c==n){b.closest('.z').classList.add('done');navigator.vibrate&&navigator.vibrate(60)}};zs('all');
+/* المسبحة */
+let tc=+L.tc||0,tt=L.tt===undefined?33:+L.tt,rd=+L.rd||0;
+const tr=()=>{$('#tb').textContent=tc;$('#rd').textContent=rd;L.tc=tc;L.tt=tt;L.rd=rd;$$('#tg button').forEach(b=>b.classList.toggle('on',+b.dataset.t===tt))};
+$('#tb').onclick=()=>{tc++;if(tt&&tc>=tt){tc=0;rd++;navigator.vibrate&&navigator.vibrate(200)}else navigator.vibrate&&navigator.vibrate(15);tr()};
+$('#tg').onclick=e=>{if(e.target.dataset.t!==undefined){tt=+e.target.dataset.t;tc=0;tr()}};
+$('#rs').onclick=()=>{tc=0;rd=0;tr()};tr();
+if('serviceWorker'in navigator)navigator.serviceWorker.register('sw.js');
+</script></body></html>
